@@ -1,0 +1,12 @@
+.block{
+    color: #FFFF;
+    font-weight: bold;
+    height: 40px;
+    width: 80px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: span 2/span 1;
+
+}
