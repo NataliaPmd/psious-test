@@ -1,5 +1,5 @@
 # Run the project
 
-npm install
-npm run start
+<pre><code>npm install
+npm run start<pre><code>
 
