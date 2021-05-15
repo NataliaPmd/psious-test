@@ -1,46 +1,90 @@
 import React, { Component } from "react";
 import "./styles/Grid.css";
-import Block from "./Block";
+import Row from "./Row";
+
 
 class Grid extends Component {
+  constructor(props) {
+    super(props)
+    this.updateOrder = this.updateOrder.bind(this)
+    this.updatePanes = this.updatePanes.bind(this)
+    this.createPane = this.createPane.bind(this)
+  }
   state = {
-    selectedBlock: {
-      color: "",
-      text: "",
+    0: {
+      order: [],
+      panes: {
+        
+      },
     },
-    blockList: [],
-  };
-  setSelectedBlock = (selectedBlock) => {
-    this.setState({
-      selectedBlock: selectedBlock,
-    });
+    1: {
+      order: [],
+      panes: {
+        
+      },
+    },
+    2: {
+      order: [],
+      panes: {
+        
+      },
+    },
   };
 
-  allowDrop = (e) => {
-    e.preventDefault();
-  };
+  updateOrder(sortablePaneId, newOrder) {
+    this.setState((prevState) => ({
+      [sortablePaneId]: {
+        panes: prevState[sortablePaneId].panes,
+        order: newOrder
+      }
+    }))
+  }
 
-  drop = (e) => {
-    e.preventDefault();
-    this.state.blockList.push(this.props.selectedBlock);
-    this.setState({
-      blockList: this.state.blockList,
-    });
-  };
+  updatePanes(sortablePaneId, updatedPanes) {
+    this.setState((prevState) => ({
+      [sortablePaneId]: {
+        panes: {
+          ...updatedPanes,
+        },
+        order: prevState.[sortablePaneId].order,
+      }
+    })) 
+  }
+
+  createPane(sortablePaneId, newPane, newOrder) {
+    this.setState((prevState) => ({
+      [sortablePaneId]: {
+        panes: {
+          ...prevState.[sortablePaneId].panes,
+          ...newPane
+        },
+        order: newOrder,
+      }
+    })) 
+  }  
+
   render() {
-    return (
-      <div className="grid" onDrop={this.drop} onDragOver={this.allowDrop}>
-        {this.state.blockList.map((block, i) => {
-          return (
-            <div key={i}>
-              <Block
-                color={block.color}
-                text={block.text}
-                setSelectedBlock={this.setSelectedBlock}
-              />
-            </div>
-          );
-        })}
+    return (      
+      <div>
+        <div className="grid">
+          {Object.keys(this.state).map((sortablePaneId) => {
+          return(
+            <Row
+              selectedBlock = {this.props.selectedBlock}
+              key = {sortablePaneId}
+              sortablePaneId = {sortablePaneId}
+              order = {this.state[sortablePaneId].order}
+              panes = {this.state[sortablePaneId].panes}
+              updateOrder = {this.updateOrder}
+              createPane = {this.createPane}
+              updateWidth = {this.updatePanes}
+            />        
+          )
+          })}
+        </div>  
+        <div onClick={()=>{console.log(this.state)}} className="button">
+          Export Data
+        </div>
       </div>
     );
   }

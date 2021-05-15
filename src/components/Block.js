@@ -6,6 +6,7 @@ class Block extends Component {
     const { color, text } = this.props;
     this.props.setSelectedBlock({ color, text });
   };
+
   render() {
     return (
       <div

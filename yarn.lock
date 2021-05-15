@@ -9426,10 +9426,10 @@
   optionalDependencies:
     "fsevents" "^2.1.3"
 
-"react-sortable-pane@^1.1.0":
-  "integrity" "sha512-UUwIfPvY2OozM+Zf18i25uDOqlIuIuc9M7mrZJiBhNdmRYbUcp8xG2dU40pvMSh0AsRKEyy5NH9sgBV9QXYRCw=="
-  "resolved" "https://registry.npmjs.org/react-sortable-pane/-/react-sortable-pane-1.1.0.tgz"
-  "version" "1.1.0"
+"react-sortable-pane@^1.0.2":
+  "integrity" "sha512-lKMJEljsWSIHe5b1gkjRjYaZUZX6R7ynVQa00xMCbO2085ZJy3rivbPlOUV4yHW3YSuyXfqBEFZnSvcgV+zKeQ=="
+  "resolved" "https://registry.npmjs.org/react-sortable-pane/-/react-sortable-pane-1.0.2.tgz"
+  "version" "1.0.2"
   dependencies:
     "lodash.debounce" "^4.0.8"
     "lodash.isequal" "^4.1.1"

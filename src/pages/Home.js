@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles/Home.css";
+
 import Block from "./../components/Block";
 import Grid from "./../components/Grid";
 
@@ -8,13 +9,14 @@ class Home extends Component {
     selectedBlock: {
       color: "",
       text: "",
-    },
+    }
   };
   setSelectedBlock = (selectedBlock) => {
     this.setState({
       selectedBlock: selectedBlock,
     });
   };
+  
   render() {
     return (
       <div className="home">
