@@ -9,12 +9,12 @@ class Row extends Component {
   };
 
   dragLeave = (e) => {
-    e.target.style.border = "";
+    e.target.style.border = "1px solid transparent";
   };
 
   drop = (e) => {
     e.preventDefault();
-    e.target.style.border = "";
+    e.target.style.border = "1px solid transparent";
     if (
       this.calcTotalWidth() <=
       document.getElementsByClassName("grid")[0].clientWidth - 40
